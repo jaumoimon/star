@@ -28,29 +28,20 @@ public class FrmRoomsUser extends javax.swing.JFrame {
     private void initComponents() {
 
         panCont = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panCont.setBackground(new java.awt.Color(255, 204, 0));
 
-        jLabel1.setText("VISTA MODUL HABITACIONS USUARI \"USER\"");
-
         javax.swing.GroupLayout panContLayout = new javax.swing.GroupLayout(panCont);
         panCont.setLayout(panContLayout);
         panContLayout.setHorizontalGroup(
             panContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panContLayout.createSequentialGroup()
-                .addGap(197, 197, 197)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(353, Short.MAX_VALUE))
+            .addGap(0, 780, Short.MAX_VALUE)
         );
         panContLayout.setVerticalGroup(
             panContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panContLayout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
+            .addGap(0, 377, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -74,7 +65,6 @@ public class FrmRoomsUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     public static javax.swing.JPanel panCont;
     // End of variables declaration//GEN-END:variables
 }

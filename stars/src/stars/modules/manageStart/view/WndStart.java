@@ -57,21 +57,22 @@ public class WndStart extends javax.swing.JFrame {
         pan1 = new javax.swing.JPanel();
         lblTitol = new javax.swing.JLabel();
         lblInUser = new javax.swing.JLabel();
-        forTxtUser = new javax.swing.JFormattedTextField();
         lblPass = new javax.swing.JLabel();
-        forTxtPass = new javax.swing.JFormattedTextField();
         lblImgSignUp = new javax.swing.JLabel();
         lblImgRecover = new javax.swing.JLabel();
         lblSignUp = new javax.swing.JLabel();
         lblRecovre = new javax.swing.JLabel();
         btnAccept = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        pasClau = new javax.swing.JPasswordField();
+        txtUsuari = new javax.swing.JTextField();
         pan2 = new javax.swing.JPanel();
         lblPromo = new javax.swing.JLabel();
         panBottom = new javax.swing.JPanel();
         lblConf = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panTop.setBackground(new java.awt.Color(0, 128, 128));
 
@@ -150,8 +151,8 @@ public class WndStart extends javax.swing.JFrame {
                         .addComponent(barMenuAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(barMenuUser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblIcon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                    .addComponent(lblAvatar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblIcon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAvatar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panTopLayout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addComponent(lblUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -160,6 +161,8 @@ public class WndStart extends javax.swing.JFrame {
                         .addGap(5, 5, 5)))
                 .addContainerGap())
         );
+
+        getContentPane().add(panTop, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         iFrCentre.setBackground(new java.awt.Color(255, 204, 0));
         iFrCentre.setBorder(null);
@@ -170,18 +173,18 @@ public class WndStart extends javax.swing.JFrame {
 
         pan1.setBackground(new java.awt.Color(255, 204, 0));
 
-        forTxtPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                forTxtPassActionPerformed(evt);
-            }
-        });
-
         btnAccept.setText("SignIn");
 
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
+            }
+        });
+
+        txtUsuari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuariActionPerformed(evt);
             }
         });
 
@@ -193,17 +196,10 @@ public class WndStart extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pan1Layout.createSequentialGroup()
-                        .addComponent(lblPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(pan1Layout.createSequentialGroup()
                         .addGroup(pan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTitol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblInUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(forTxtUser))
+                            .addComponent(lblInUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(6, 6, 6))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan1Layout.createSequentialGroup()
-                        .addComponent(forTxtPass)
-                        .addContainerGap())
                     .addGroup(pan1Layout.createSequentialGroup()
                         .addGroup(pan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblImgRecover, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,6 +213,12 @@ public class WndStart extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(lblSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                             .addComponent(lblRecovre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pan1Layout.createSequentialGroup()
+                        .addGroup(pan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtUsuari, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pasClau, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         pan1Layout.setVerticalGroup(
@@ -226,12 +228,12 @@ public class WndStart extends javax.swing.JFrame {
                 .addComponent(lblTitol, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblInUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(forTxtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
                 .addComponent(lblPass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(forTxtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(pasClau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAccept)
@@ -272,11 +274,11 @@ public class WndStart extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(panContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panContLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 9, Short.MAX_VALUE)
                     .addComponent(pan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(22, 22, 22)
                     .addComponent(pan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 20, Short.MAX_VALUE)))
+                    .addGap(0, 29, Short.MAX_VALUE)))
         );
         panContLayout.setVerticalGroup(
             panContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,8 +302,11 @@ public class WndStart extends javax.swing.JFrame {
             iFrCentreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(iFrCentreLayout.createSequentialGroup()
                 .addComponent(panCont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        getContentPane().add(iFrCentre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 106, 800, 400));
+        iFrCentre.getAccessibleContext().setAccessibleParent(iFrCentre);
 
         panBottom.setBackground(new java.awt.Color(0, 128, 128));
 
@@ -324,36 +329,18 @@ public class WndStart extends javax.swing.JFrame {
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panBottom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(iFrCentre, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(panTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(iFrCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panBottom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        iFrCentre.getAccessibleContext().setAccessibleParent(iFrCentre);
+        getContentPane().add(panBottom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 531, 800, 100));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void forTxtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forTxtPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_forTxtPassActionPerformed
-
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuariActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuariActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -361,8 +348,6 @@ public class WndStart extends javax.swing.JFrame {
     public static javax.swing.JToolBar barMenuUser;
     public static javax.swing.JButton btnAccept;
     public static javax.swing.JButton btnCancel;
-    public static javax.swing.JFormattedTextField forTxtPass;
-    public static javax.swing.JFormattedTextField forTxtUser;
     public static javax.swing.JInternalFrame iFrCentre;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
@@ -398,5 +383,7 @@ public class WndStart extends javax.swing.JFrame {
     public static javax.swing.JPanel panBottom;
     public static javax.swing.JPanel panCont;
     public static javax.swing.JPanel panTop;
+    public static javax.swing.JPasswordField pasClau;
+    public static javax.swing.JTextField txtUsuari;
     // End of variables declaration//GEN-END:variables
 }

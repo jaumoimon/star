@@ -6,6 +6,7 @@
 package stars.modules.manageStart.controller;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -41,14 +44,14 @@ import stars.modules.manageStart.view.FrmUsersAdmin;
 public class ControllerStart implements ActionListener, KeyListener, MouseListener{
     
     public static boolean conectat = false;
-    public static WndStart Inici = new WndStart();
+    public static WndStart Start = new WndStart();
     public static FrmSignUp SignUp = new FrmSignUp();
     public static FrmSignUp Perfil = new FrmSignUp();
     public static FrmRecover Recover = new FrmRecover();
     public static FrmUsersAdmin Pager = new FrmUsersAdmin();
     public static FrmRoomsUser HabUsers = new FrmRoomsUser();
-
-     
+    
+    public static ImageIcon avatar = null;
     
     public enum Accio {
         
@@ -93,7 +96,7 @@ public class ControllerStart implements ActionListener, KeyListener, MouseListen
         
         switch (i){
             case 0: //Inici + login
-                this.Inici = (WndStart) finestra;
+                this.Start = (WndStart) finestra;
                 break;
             case 1: //Alta
                 this.SignUp = (FrmSignUp) finestra;
@@ -114,82 +117,97 @@ public class ControllerStart implements ActionListener, KeyListener, MouseListen
         switch (i) {
             case 0: //Inici
                 
-                ((BasicInternalFrameUI)this.Inici.iFrCentre.getUI()).setNorthPane(null);
+                ((BasicInternalFrameUI)this.Start.iFrCentre.getUI()).setNorthPane(null);
                 //Configuració de la finestra
-                this.Inici.setLocationRelativeTo(null);
-                this.Inici.setResizable(false);
-                this.Inici.setTitle("manage STARS");
-                this.Inici.setIconImage(AppImages.icona  );
-                //this.Inici.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                this.Inici.setSize(800, 600);
+                this.Start.setLocationRelativeTo(null);
+                this.Start.setResizable(false);
+                this.Start.setTitle("manage STARS");
+                this.Start.setIconImage(AppImages.icona  );
+                //this.Start.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                this.Start.setSize(800, 600);
                               
                 //Insertar text +  format + imatges
                 
                 //Barres menus
-                this.Inici.lblPos1.setText(Texts_WndStart.writeInci());
-                this.Inici.lblPos1.setFont(ColorsAndFonts.barMenu);
-                this.Inici.lblPos1.setForeground(ColorsAndFonts.YellowApp);
-                this.Inici.lblPos2.setText(Texts_WndStart.writeHabitacions());
-                this.Inici.lblPos2.setFont(ColorsAndFonts.barMenu);
-                this.Inici.lblPos2.setForeground(ColorsAndFonts.YellowApp);
-                this.Inici.lblPos3.setText(Texts_WndStart.writeReserves());
-                this.Inici.lblPos3.setFont(ColorsAndFonts.barMenu);
-                this.Inici.lblPos3.setForeground(ColorsAndFonts.YellowApp);
-                this.Inici.lblPos4.setText(Texts_WndStart.writePerfil());
-                this.Inici.lblPos4.setFont(ColorsAndFonts.barMenu);
-                this.Inici.lblPos4.setForeground(ColorsAndFonts.YellowApp);
+                this.Start.lblPos1.setText(Texts_WndStart.writeInci());
+                this.Start.lblPos1.setFont(ColorsAndFonts.barMenu);
+                this.Start.lblPos1.setForeground(ColorsAndFonts.YellowApp);
+                this.Start.lblPos2.setText(Texts_WndStart.writeHabitacions());
+                this.Start.lblPos2.setFont(ColorsAndFonts.barMenu);
+                this.Start.lblPos2.setForeground(ColorsAndFonts.YellowApp);
+                this.Start.lblPos3.setText(Texts_WndStart.writeReserves());
+                this.Start.lblPos3.setFont(ColorsAndFonts.barMenu);
+                this.Start.lblPos3.setForeground(ColorsAndFonts.YellowApp);
+                this.Start.lblPos4.setText(Texts_WndStart.writePerfil());
+                this.Start.lblPos4.setFont(ColorsAndFonts.barMenu);
+                this.Start.lblPos4.setForeground(ColorsAndFonts.YellowApp);
                 
-                this.Inici.lblPos1A.setText(Texts_WndStart.writeInci());
-                this.Inici.lblPos1A.setFont(ColorsAndFonts.barMenu);
-                this.Inici.lblPos1A.setForeground(ColorsAndFonts.YellowApp);
-                this.Inici.lblPos2A.setText(Texts_WndStart.writeUsuaris());
-                this.Inici.lblPos2A.setFont(ColorsAndFonts.barMenu);
-                this.Inici.lblPos2A.setForeground(ColorsAndFonts.YellowApp);
-                this.Inici.lblPos3A.setText(Texts_WndStart.writeHabitacions());
-                this.Inici.lblPos3A.setFont(ColorsAndFonts.barMenu);
-                this.Inici.lblPos3A.setForeground(ColorsAndFonts.YellowApp);
-                this.Inici.lblPos4A.setText(Texts_WndStart.writeReserves());
-                this.Inici.lblPos4A.setFont(ColorsAndFonts.barMenu);
-                this.Inici.lblPos4A.setForeground(ColorsAndFonts.YellowApp);
-                this.Inici.lblPos5A.setText(Texts_WndStart.writePerfil());
-                this.Inici.lblPos5A.setFont(ColorsAndFonts.barMenu);
-                this.Inici.lblPos5A.setForeground(ColorsAndFonts.YellowApp);
+                this.Start.lblPos1A.setText(Texts_WndStart.writeInci());
+                this.Start.lblPos1A.setFont(ColorsAndFonts.barMenu);
+                this.Start.lblPos1A.setForeground(ColorsAndFonts.YellowApp);
+                this.Start.lblPos2A.setText(Texts_WndStart.writeUsuaris());
+                this.Start.lblPos2A.setFont(ColorsAndFonts.barMenu);
+                this.Start.lblPos2A.setForeground(ColorsAndFonts.YellowApp);
+                this.Start.lblPos3A.setText(Texts_WndStart.writeHabitacions());
+                this.Start.lblPos3A.setFont(ColorsAndFonts.barMenu);
+                this.Start.lblPos3A.setForeground(ColorsAndFonts.YellowApp);
+                this.Start.lblPos4A.setText(Texts_WndStart.writeReserves());
+                this.Start.lblPos4A.setFont(ColorsAndFonts.barMenu);
+                this.Start.lblPos4A.setForeground(ColorsAndFonts.YellowApp);
+                this.Start.lblPos5A.setText(Texts_WndStart.writePerfil());
+                this.Start.lblPos5A.setFont(ColorsAndFonts.barMenu);
+                this.Start.lblPos5A.setForeground(ColorsAndFonts.YellowApp);
                         
                 //Panel
-                this.Inici.lblTitol.setText(Texts_WndStart.writeTitol());
-                this.Inici.lblTitol.setFont(ColorsAndFonts.h1);
-                this.Inici.lblInUser.setText(Texts_WndStart.writeIntroUser());
-                this.Inici.lblInUser.setFont(ColorsAndFonts.pB);
-                this.Inici.lblPass.setText(Texts_WndStart.writePass());
-                this.Inici.lblPass.setFont(ColorsAndFonts.pB);
-                this.Inici.btnAccept.setText(Texts_WndStart.writeAccept());
-                this.Inici.btnAccept.setFont(ColorsAndFonts.pB);
-                this.Inici.btnCancel.setText(Texts_WndStart.writeCancel());
-                this.Inici.btnCancel.setFont(ColorsAndFonts.pB);         
-                this.Inici.lblImgSignUp.setIcon(AppImages.iconInfo);
-                this.Inici.lblSignUp.setText(Texts_WndStart.writeSignUp());
-                this.Inici.lblSignUp.setFont(ColorsAndFonts.pK); 
-                this.Inici.lblImgRecover.setIcon(AppImages.iconWarning);
-                this.Inici.lblRecovre.setText(Texts_WndStart.writeForget());
-                this.Inici.lblRecovre.setFont(ColorsAndFonts.pK); 
-                          
+                this.Start.lblTitol.setText(Texts_WndStart.writeTitol());
+                this.Start.lblTitol.setFont(ColorsAndFonts.h1);
+                this.Start.lblInUser.setText(Texts_WndStart.writeIntroUser());
+                this.Start.lblInUser.setFont(ColorsAndFonts.pB);
+                this.Start.lblPass.setText(Texts_WndStart.writePass());
+                this.Start.lblPass.setFont(ColorsAndFonts.pB);
+                this.Start.btnAccept.setText(Texts_WndStart.writeAccept());
+                this.Start.btnAccept.setFont(ColorsAndFonts.pB);
+                this.Start.btnCancel.setText(Texts_WndStart.writeCancel());
+                this.Start.btnCancel.setFont(ColorsAndFonts.pB);         
+                this.Start.lblImgSignUp.setIcon(AppImages.iconInfo);
+                this.Start.lblSignUp.setText(Texts_WndStart.writeSignUp());
+                this.Start.lblSignUp.setFont(ColorsAndFonts.pK); 
+                this.Start.lblImgRecover.setIcon(AppImages.iconWarning);
+                this.Start.lblRecovre.setText(Texts_WndStart.writeForget());
+                this.Start.lblRecovre.setFont(ColorsAndFonts.pK); 
+                
+                //Usuari
+                this.Start.lblAvatar.setSize(78, 78);
+                
+                avatar = new ImageIcon ( Principal.usuari.getAvatar() );
+                avatar.getImage().getScaledInstance(this.Start.lblAvatar.getWidth(), this.Start.lblAvatar.getHeight(), Image.SCALE_DEFAULT);
+                this.Start.lblAvatar.setIcon(avatar);
+           
+
+                this.Start.lblAvatar.setVisible(true);
+                
+                this.Start.lblUser.setText("Iniciar");
+                this.Start.lblSession.setText("Vols registrar-te?");
+                
+                
+                
                 //Visibilitat 
                 
                 /*
-                if (Principal.usuari.getTipus()== "user"){
-                    this.Inici.barMenuAdmin.setVisible(false);
-                    this.Inici.barMenuUser.setVisible(true);
-                } else if (Principal.usuari.getTipus()== "admin") {
-                    this.Inici.barMenuUser.setVisible(false);
-                    this.Inici.barMenuAdmin.setVisible(true);
+                if (Start.usuari.getTipus()== "user"){
+                    this.Start.barMenuAdmin.setVisible(false);
+                    this.Start.barMenuUser.setVisible(true);
+                } else if (Start.usuari.getTipus()== "admin") {
+                    this.Start.barMenuUser.setVisible(false);
+                    this.Start.barMenuAdmin.setVisible(true);
                 }
                 */
-                this.Inici.barMenuAdmin.setVisible(false);
-                this.Inici.barMenuUser.setVisible(true);
-                this.Inici.setVisible(true);
+                this.Start.barMenuAdmin.setVisible(false);
+                this.Start.barMenuUser.setVisible(true);
+                this.Start.setVisible(true);
                 
                 //Tancar finestra
-                this.Inici.addWindowListener(new WindowAdapter() {
+                this.Start.addWindowListener(new WindowAdapter() {
                     public void windowClosing(WindowEvent e) {
                         JOptionPane.showMessageDialog(null,"Eixint de l'App", "Eixint",JOptionPane.INFORMATION_MESSAGE);
                         System.exit(0);
@@ -197,35 +215,35 @@ public class ControllerStart implements ActionListener, KeyListener, MouseListen
                     });
                 
                 //Activar control                
-                this.Inici.forTxtUser.setName("_INTROUSER");
-                this.Inici.forTxtUser.addMouseListener(this);
-                this.Inici.forTxtUser.addKeyListener(this);
+                this.Start.txtUsuari.setName("_INTROUSER");
+                this.Start.txtUsuari.addMouseListener(this);
+                this.Start.txtUsuari.addKeyListener(this);
                 
-                this.Inici.forTxtPass.setName("_INTROCLAU");
-                this.Inici.forTxtPass.addMouseListener(this);
-                this.Inici.forTxtPass.addKeyListener(this);
+                this.Start.txtUsuari.setName("_INTROCLAU");
+                this.Start.txtUsuari.addMouseListener(this);
+                this.Start.txtUsuari.addKeyListener(this);
                 
-                this.Inici.btnAccept.setActionCommand("_ACCEPT");
-                this.Inici.btnAccept.setName("_ACCEPT");
-                this.Inici.btnAccept.addMouseListener(this);
-                this.Inici.btnAccept.addActionListener(this);
+                this.Start.btnAccept.setActionCommand("_ACCEPT");
+                this.Start.btnAccept.setName("_ACCEPT");
+                this.Start.btnAccept.addMouseListener(this);
+                this.Start.btnAccept.addActionListener(this);
                 
                 
-                this.Inici.btnCancel.setName("_CANCEL");
-                this.Inici.btnCancel.addMouseListener(this);
+                this.Start.btnCancel.setName("_CANCEL");
+                this.Start.btnCancel.addMouseListener(this);
                 
-                this.Inici.lblSignUp.setName("_SIGNUP");
-                this.Inici.lblSignUp.addMouseListener(this);
+                this.Start.lblSignUp.setName("_SIGNUP");
+                this.Start.lblSignUp.addMouseListener(this);
                 
-                this.Inici.lblRecovre.setName("_RECOVER");
-                this.Inici.lblRecovre.addMouseListener(this);
+                this.Start.lblRecovre.setName("_RECOVER");
+                this.Start.lblRecovre.addMouseListener(this);
                 
-                this.Inici.lblConf.setName("_CONF");
-                this.Inici.lblConf.addMouseListener(this);
-                this.Inici.lblConf.setForeground(Color.white);
+                this.Start.lblConf.setName("_CONF");
+                this.Start.lblConf.addMouseListener(this);
+                this.Start.lblConf.setForeground(Color.white);
                 
-                this.Inici.lblPos3.setName("_BARUSERS_RESERVES");
-                this.Inici.lblPos3.addMouseListener(this);
+                this.Start.lblPos3.setName("_BARUSERS_RESERVES");
+                this.Start.lblPos3.addMouseListener(this);
                 
         
                 break;
@@ -254,8 +272,8 @@ public class ControllerStart implements ActionListener, KeyListener, MouseListen
     public void actionPerformed(ActionEvent e) {  
         switch (Accio.valueOf(e.getActionCommand())){
             case _ACCEPT:
-                String usuari = this.Inici.forTxtUser.getText();
-                String clau = this.Inici.forTxtPass.getText();
+                String usuari = this.Start.txtUsuari.getText();
+                String clau = this.Start.pasClau.getText();
                 boolean login = false;
                 
                 BLLStart _login = new BLLStart();
@@ -267,22 +285,28 @@ public class ControllerStart implements ActionListener, KeyListener, MouseListen
                     
                     JPanel panHab = new JPanel();
                     panHab.add(this.HabUsers.panCont);
-                    this.Inici.iFrCentre.setVisible(false);
-                    this.Inici.iFrCentre.setContentPane(panHab);
-                    this.Inici.iFrCentre.setVisible(true);
+                    this.Start.iFrCentre.setVisible(false);
+                    this.Start.iFrCentre.setContentPane(panHab);
+                    this.Start.iFrCentre.setVisible(true);
                     
                     
                     
                 } else {
-                    WndStart.forTxtUser.setForeground(Color.red);
-                    WndStart.forTxtUser.setText("Usuari incorrecte");
-                    WndStart.forTxtPass.setForeground(Color.red);
-                    WndStart.forTxtPass.setText("Usuari incorrecte");
-                    WndStart.forTxtUser.requestFocus();
+                    WndStart.txtUsuari.setForeground(Color.red);
+                    WndStart.txtUsuari.setText("Usuari incorrecte");
+                    WndStart.pasClau.setForeground(Color.red);
+                    WndStart.pasClau.setText("Usuari incorrecte");
+                    WndStart.pasClau.requestFocus();
                     return;
                 }
                 break;
             /*case _CANCEL:
+                
+                break;*/            /*case _CANCEL:
+                
+                break;*/            /*case _CANCEL:
+                
+                break;*/            /*case _CANCEL:
                 
                 break;*/
         }      
@@ -313,9 +337,9 @@ public class ControllerStart implements ActionListener, KeyListener, MouseListen
                 new ControllerStart(new FrmSignUp(),1).iniciar(1);
                 JPanel pan01 = new JPanel();
                 pan01.add(this.SignUp.panCont);
-                this.Inici.iFrCentre.setVisible(false);
-                this.Inici.iFrCentre.setContentPane(pan01);
-                this.Inici.iFrCentre.setVisible(true);
+                this.Start.iFrCentre.setVisible(false);
+                this.Start.iFrCentre.setContentPane(pan01);
+                this.Start.iFrCentre.setVisible(true);
                 break;
                 
             

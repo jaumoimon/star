@@ -39,7 +39,7 @@ public class AppImages {
     public static Image warning = Toolkit.getDefaultToolkit().getImage("src/stars/images/app/messagebox_warning.png");
     public static ImageIcon iconWarning = new ImageIcon("src/stars/images/app/messagebox_warning.png");
     
-    public static ImageIcon defUser = new ImageIcon("src/stars/images/users/default-avatar");
+    public static ImageIcon defUser = new ImageIcon("src/stars/images/users/default-avatar.jpg");
 
     
     

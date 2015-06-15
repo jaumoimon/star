@@ -23,31 +23,31 @@ public class DAOLogin {
     
     public static void insertUser () {
         
-        if (WndStart.forTxtUser.getText().isEmpty()){
-            WndStart.forTxtUser.setForeground(Color.red);
-            WndStart.forTxtUser.setText("Introduir usuari");
-            WndStart.forTxtUser.requestFocus();
+        if (WndStart.txtUsuari.getText().isEmpty()){
+            WndStart.txtUsuari.setForeground(Color.red);
+            WndStart.txtUsuari.setText("Introduir usuari");
+            WndStart.txtUsuari.requestFocus();
             return;
-        } else if ( Validate.validate_nom(WndStart.forTxtUser.getText()) ==false ){
-            WndStart.forTxtUser.setForeground(Color.red);
-            WndStart.forTxtUser.setText("Introduir usuari valid");
-            WndStart.forTxtUser.requestFocus();
+        } else if ( Validate.validate_nom(WndStart.txtUsuari.getText()) ==false ){
+            WndStart.txtUsuari.setForeground(Color.red);
+            WndStart.txtUsuari.setText("Introduir usuari valid");
+            WndStart.txtUsuari.requestFocus();
         } else {
-            WndStart.forTxtPass.requestFocus();
+            WndStart.pasClau.requestFocus();
         }
     }
     
         public static void insertPass () {
         
-        if (WndStart.forTxtPass.getText().isEmpty()){
-            WndStart.forTxtPass.setForeground(Color.red);
-            WndStart.forTxtPass.setText("Introduir clau");
-            WndStart.forTxtPass.requestFocus();
+        if (WndStart.pasClau.getText().isEmpty()){
+            WndStart.pasClau.setForeground(Color.red);
+            WndStart.pasClau.setText("Introduir clau");
+            WndStart.pasClau.requestFocus();
             return;
-        } else if ( Validate.validate_nom(WndStart.forTxtPass.getText()) ==false ){
-            WndStart.forTxtPass.setForeground(Color.red);
-            WndStart.forTxtPass.setText("Introduir clau vàlida");
-            WndStart.forTxtPass.requestFocus();
+        } else if ( Validate.validate_nom(WndStart.pasClau.getText()) ==false ){
+            WndStart.pasClau.setForeground(Color.red);
+            WndStart.pasClau.setText("Introduir clau vàlida");
+            WndStart.pasClau.requestFocus();
         } else {
             WndStart.btnAccept.requestFocus();
         }

@@ -17,9 +17,8 @@ public class Principal {
 		conf = new Configuration();
                 //ClientesBLLBD b = new ClientesBLLBD();
                 //b.listAllClientesBLL();
-                usuari = new MyUser("defecte", "defecte", true, true, "user", "src/stars/images/users/default-avatar");
-                
-                
+                usuari = new MyUser("defecte", "defecte", true, true, "user", "src/stars/images/users/default-avatar.jpg");
+                                
                 new ControllerStart(new WndStart(), 0).iniciar(0);
 
 	}

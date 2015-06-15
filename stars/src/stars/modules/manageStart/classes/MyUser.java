@@ -11,15 +11,15 @@ package stars.modules.manageStart.classes;
  */
 public class MyUser {
     
-    private String dni = null;
+    private String usuari = null;
     private String password = null;
     private boolean conectat = false;
     private boolean activat = false;
     private String tipus = "";
     private String avatar = "";
 
-    public MyUser(String dni, String clau, boolean conectat, boolean activat, String tipus, String avatar) {
-        this.dni = dni;
+    public MyUser(String usuari, String clau, boolean conectat, boolean activat, String tipus, String avatar) {
+        this.usuari = usuari;
         this.password = clau;
         this.conectat = conectat;
         this.activat = activat;
@@ -27,8 +27,8 @@ public class MyUser {
         this.avatar = avatar;
     }
     
-    public MyUser(String dni, String clau, String tipus, String avatar) {
-        this.dni = dni;
+    public MyUser(String usuari, String clau, String tipus, String avatar) {
+        this.usuari = usuari;
         this.password = clau;
         this.tipus = tipus;
         this.avatar = avatar;
@@ -37,12 +37,12 @@ public class MyUser {
     public MyUser() {
     }
     
-    public String getDni() {
-        return dni;
+    public String getUsuari() {
+        return usuari;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setUsuari(String usuari) {
+        this.usuari = usuari;
     }
 
     public String getPassword() {
@@ -87,7 +87,7 @@ public class MyUser {
 
     @Override
     public String toString() {
-        return "MyUser{" + "dni=" + dni + ", clau=" + password + ", conectat=" + conectat + ", activat=" + activat + ", tipus=" + tipus + ", avatar=" + avatar + '}';
+        return "MyUser{" + "usuari=" + usuari + ", clau=" + password + ", conectat=" + conectat + ", activat=" + activat + ", tipus=" + tipus + ", avatar=" + avatar + '}';
     }
 
 
