@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import stars.modules.manageStart.classes.MyUser;
 import stars.modules.manageStart.view.FrmUsersAdmin;
-import stars.pager.Page;
+import stars.classes.pager.Pager;
 
 /**
  *
@@ -142,7 +142,7 @@ public class MSTableModelUsers extends AbstractTableModel{
             }
         }
         JOptionPane.showMessageDialog(null, cont);
-        Page.initLinkBox();
+        Pager.initLinkBox();
     }
 
     public MyUser buscar(String u) {

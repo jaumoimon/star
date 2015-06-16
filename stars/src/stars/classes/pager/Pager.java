@@ -1,4 +1,4 @@
-package stars.pager;
+package stars.classes.pager;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -14,7 +14,7 @@ import stars.modules.manageStart.model.classes.MSTableModelUsers;
 import stars.modules.manageStart.view.FrmUsersAdmin;
 
 
-public class Page {
+public class Pager {
     public static final LinkViewRadioButtonUI ui = new LinkViewRadioButtonUI();
     public static int LR_PAGE_SIZE = 5;
     public static Box box = Box.createHorizontalBox();
@@ -32,7 +32,7 @@ public class Page {
         
         box.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
         FrmUsersAdmin.jPanel4.setLayout(new BorderLayout());
-        FrmUsersAdmin.jPanel4.add(Page.box);
+        FrmUsersAdmin.jPanel4.add(Pager.box);
     }
     public static void initLinkBox() {
         FrmUsersAdmin.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {

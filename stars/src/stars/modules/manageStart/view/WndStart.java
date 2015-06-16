@@ -72,7 +72,6 @@ public class WndStart extends javax.swing.JFrame {
         lblConf = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panTop.setBackground(new java.awt.Color(0, 128, 128));
 
@@ -162,10 +161,10 @@ public class WndStart extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(panTop, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         iFrCentre.setBackground(new java.awt.Color(255, 204, 0));
         iFrCentre.setBorder(null);
+        iFrCentre.setPreferredSize(new java.awt.Dimension(800, 400));
+        iFrCentre.setVerifyInputWhenFocusTarget(false);
         iFrCentre.setVisible(true);
 
         panCont.setBackground(new java.awt.Color(255, 204, 0));
@@ -271,7 +270,7 @@ public class WndStart extends javax.swing.JFrame {
         panCont.setLayout(panContLayout);
         panContLayout.setHorizontalGroup(
             panContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 798, Short.MAX_VALUE)
             .addGroup(panContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panContLayout.createSequentialGroup()
                     .addGap(0, 9, Short.MAX_VALUE)
@@ -305,9 +304,6 @@ public class WndStart extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(iFrCentre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 106, 800, 400));
-        iFrCentre.getAccessibleContext().setAccessibleParent(iFrCentre);
-
         panBottom.setBackground(new java.awt.Color(0, 128, 128));
 
         lblConf.setText("Conf");
@@ -319,7 +315,7 @@ public class WndStart extends javax.swing.JFrame {
             .addGroup(panBottomLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(lblConf)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(754, Short.MAX_VALUE))
         );
         panBottomLayout.setVerticalGroup(
             panBottomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,7 +325,25 @@ public class WndStart extends javax.swing.JFrame {
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panBottom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 531, 800, 100));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(iFrCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panBottom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(iFrCentre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panBottom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        iFrCentre.getAccessibleContext().setAccessibleParent(iFrCentre);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

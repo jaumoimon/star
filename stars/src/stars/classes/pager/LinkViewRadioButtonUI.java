@@ -1,4 +1,4 @@
-package stars.pager;
+package stars.classes.pager;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;

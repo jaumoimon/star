@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import stars.librariesInt.Functions;
-import stars.pager.Page;
+import stars.classes.pager.Pager;
 
 public class miniSimpleTableModelTrebFixe extends AbstractTableModel {
     public static ArrayList<TreballadorFixe> datos = new ArrayList<TreballadorFixe>();
@@ -140,7 +140,7 @@ public class miniSimpleTableModelTrebFixe extends AbstractTableModel {
             }
         }
         JOptionPane.showMessageDialog(null, cont);
-        Page.initLinkBox();
+        Pager.initLinkBox();
     }
 
     public TreballadorFixe buscar(String u) {

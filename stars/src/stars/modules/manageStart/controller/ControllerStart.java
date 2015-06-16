@@ -178,30 +178,21 @@ public class ControllerStart implements ActionListener, KeyListener, MouseListen
                 
                 //Usuari
                 this.Start.lblAvatar.setSize(78, 78);
-                
                 avatar = new ImageIcon ( Principal.usuari.getAvatar() );
                 avatar.getImage().getScaledInstance(this.Start.lblAvatar.getWidth(), this.Start.lblAvatar.getHeight(), Image.SCALE_DEFAULT);
                 this.Start.lblAvatar.setIcon(avatar);
-           
-
                 this.Start.lblAvatar.setVisible(true);
-                
                 this.Start.lblUser.setText("Iniciar");
                 this.Start.lblSession.setText("Vols registrar-te?");
-                
-                
-                
-                //Visibilitat 
-                
-                /*
-                if (Start.usuari.getTipus()== "user"){
+
+                //Visibilitat  
+                if (Principal.usuari.getTipus()== "user"){
                     this.Start.barMenuAdmin.setVisible(false);
                     this.Start.barMenuUser.setVisible(true);
-                } else if (Start.usuari.getTipus()== "admin") {
+                } else if (Principal.usuari.getTipus()== "admin") {
                     this.Start.barMenuUser.setVisible(false);
                     this.Start.barMenuAdmin.setVisible(true);
                 }
-                */
                 this.Start.barMenuAdmin.setVisible(false);
                 this.Start.barMenuUser.setVisible(true);
                 this.Start.setVisible(true);

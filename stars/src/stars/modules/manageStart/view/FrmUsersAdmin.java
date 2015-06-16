@@ -1,6 +1,6 @@
 package stars.modules.manageStart.view;
-import stars.pager.Page;
-import stars.pager.Render;
+import stars.classes.pager.Pager;
+import stars.classes.pager.Render;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.UIManager;
@@ -30,8 +30,8 @@ public class FrmUsersAdmin extends javax.swing.JFrame {
         Render renderizador = new Render();
         TABLA.setDefaultRenderer(String.class, renderizador);
 
-        Page.inicializa();
-        Page.initLinkBox();
+        Pager.inicializa();
+        Pager.initLinkBox();
         
         /*this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -237,28 +237,28 @@ public class FrmUsersAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SIGUIENTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIGUIENTEActionPerformed
-        Page.currentPageIndex += 1;
-        Page.initLinkBox();
+        Pager.currentPageIndex += 1;
+        Pager.initLinkBox();
     }//GEN-LAST:event_SIGUIENTEActionPerformed
 
     private void ANTERIORActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANTERIORActionPerformed
-        Page.currentPageIndex -= 1;
-        Page.initLinkBox();
+        Pager.currentPageIndex -= 1;
+        Pager.initLinkBox();
     }//GEN-LAST:event_ANTERIORActionPerformed
 
     private void primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primeroActionPerformed
-        Page.currentPageIndex = 1;
-        Page.initLinkBox();
+        Pager.currentPageIndex = 1;
+        Pager.initLinkBox();
     }//GEN-LAST:event_primeroActionPerformed
 
     private void ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimoActionPerformed
-        Page.currentPageIndex = Page.maxPageIndex;
-        Page.initLinkBox();
+        Pager.currentPageIndex = Pager.maxPageIndex;
+        Pager.initLinkBox();
     }//GEN-LAST:event_ultimoActionPerformed
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         //mostrar rdos de filtrar empezando por botón primero, enlace 1
-        Page.currentPageIndex = 1;
+        Pager.currentPageIndex = 1;
         ((MSTableModelUsers)TABLA.getModel()).filtrar();
     }//GEN-LAST:event_jTextField1KeyReleased
 
@@ -269,9 +269,9 @@ public class FrmUsersAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        Page.itemsPerPage=Integer.parseInt(jComboBox1.getSelectedItem().toString());
-        Page.currentPageIndex = 1;
-        Page.initLinkBox();
+        Pager.itemsPerPage=Integer.parseInt(jComboBox1.getSelectedItem().toString());
+        Pager.currentPageIndex = 1;
+        Pager.initLinkBox();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
