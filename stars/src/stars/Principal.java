@@ -9,6 +9,7 @@ import stars.modules.manageStart.view.WndStart;
 public class Principal {
 	public static Configuration conf = null;
         public static MyUser usuari = new MyUser();
+        public static String singletonFinestra = "";
 	
 	public static void main(String[] args) {
 		

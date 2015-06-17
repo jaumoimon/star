@@ -10,6 +10,7 @@ import javax.swing.ButtonModel;
 import javax.swing.JRadioButton;
 import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
+import stars.Principal;
 import stars.modules.manageStart.model.classes.MSTableModelUsers;
 import stars.modules.manageStart.view.FrmUsersAdmin;
 
@@ -25,30 +26,63 @@ public class Pager {
 
     public static void inicializa() {
         int rowCount = 0;
-        rowCount = ((MSTableModelUsers)FrmUsersAdmin.TABLA.getModel()).getRowCount();
+        switch (Principal.singletonFinestra){
+            case "usuaris":
+                rowCount = ((MSTableModelUsers)FrmUsersAdmin.TABLA.getModel()).getRowCount();
+                break;
+            case "habitacions":
+                
+                break;
+        }
             
         int v = rowCount%itemsPerPage==0 ? 0 : 1;
         maxPageIndex = rowCount/itemsPerPage + v;
         
-        box.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
-        FrmUsersAdmin.jPanel4.setLayout(new BorderLayout());
-        FrmUsersAdmin.jPanel4.add(Pager.box);
+        box.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));   
+        switch (Principal.singletonFinestra){
+            case "usuaris":
+                FrmUsersAdmin.jPanel4.setLayout(new BorderLayout());
+                FrmUsersAdmin.jPanel4.add(Pager.box);
+                break;
+            case "habitacions":
+                
+                break;
+        }        
+
     }
     public static void initLinkBox() {
-        FrmUsersAdmin.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
+        switch (Principal.singletonFinestra){
+            case "usuaris":
+                FrmUsersAdmin.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
                         @Override public boolean include(RowFilter.Entry<? extends TableModel, ? extends Integer> entry) {
                             int ti = currentPageIndex - 1;
                             int ei = entry.getIdentifier();
                             return ti*itemsPerPage<=ei && ei<ti*itemsPerPage+itemsPerPage;
                         }
                     });
-        
+                break;
+            case "habitacions":
+                
+                break;
+  
+        }
+ 
         int startPageIndex = currentPageIndex-LR_PAGE_SIZE;
         int endPageIndex = 0;
         if(startPageIndex <=0){ startPageIndex = 1;}
         
         int rowCount = 0;
-        rowCount = ( (MSTableModelUsers) FrmUsersAdmin.TABLA.getModel()).getRowCount();
+        
+        switch (Principal.singletonFinestra){
+            case "usuaris":
+                rowCount = ( (MSTableModelUsers) FrmUsersAdmin.TABLA.getModel()).getRowCount();
+                break;
+            case "habitacions":
+                
+                break;
+        }          
+        
+        
 
         int v = rowCount%itemsPerPage==0 ? 0 : 1;
         maxPageIndex = rowCount/itemsPerPage + v;
@@ -58,25 +92,40 @@ public class Pager {
         }
 
         box.removeAll();
+      
         if(  (rowCount<=itemsPerPage) && (rowCount>0)  ){ //caben todos los datos en la misma página
-            FrmUsersAdmin.primero.setEnabled(false);
-            FrmUsersAdmin.ANTERIOR.setEnabled(false);
-            FrmUsersAdmin.SIGUIENTE.setEnabled(false);
-            FrmUsersAdmin.ultimo.setEnabled(false);
-            FrmUsersAdmin.CAJA.setText("");
-                       
-            
-            //actualizar enlaces: sólo 1 enlace
-            ButtonGroup bg = new ButtonGroup();
-            box.add(Box.createHorizontalGlue());
-            JRadioButton c = makeRadioButton(1);
-            box.add(c);
-            bg.add(c);
-            box.add(Box.createHorizontalGlue());
-            box.revalidate();
-            box.repaint();
+            switch (Principal.singletonFinestra){
+                case "usuaris":
+                    FrmUsersAdmin.primero.setEnabled(false);
+                    FrmUsersAdmin.ANTERIOR.setEnabled(false);
+                    FrmUsersAdmin.SIGUIENTE.setEnabled(false);
+                    FrmUsersAdmin.ultimo.setEnabled(false);
+                    FrmUsersAdmin.CAJA.setText("");
+                    
+                    //actualizar enlaces: sólo 1 enlace
+                    ButtonGroup bg = new ButtonGroup();
+                    box.add(Box.createHorizontalGlue());
+                    JRadioButton c = makeRadioButton(1);
+                    box.add(c);
+                    bg.add(c);
+                    box.add(Box.createHorizontalGlue());
+                    box.revalidate();
+                    box.repaint();
+                    
+                    break;
+                case "habitacions":
+                    
+                    break;
+     
+                    
+            }
+
             
         }else if(rowCount==0) { //no hay rdos
+            switch (Principal.singletonFinestra){
+                case "usuaris":
+            
+            
             //actualizar botones y caja: desactivarlos
                 FrmUsersAdmin.primero.setEnabled(false);
                 FrmUsersAdmin.ANTERIOR.setEnabled(false);
@@ -93,8 +142,14 @@ public class Pager {
             box.add(Box.createHorizontalGlue());
             box.revalidate();
             box.repaint();
+                    
+                    break;
+            }
             
         }else if(rowCount>itemsPerPage) {
+            
+            switch (Principal.singletonFinestra){
+                case "usuaris":
             FrmUsersAdmin.primero.setEnabled(currentPageIndex>1);
                     FrmUsersAdmin.ANTERIOR.setEnabled(currentPageIndex>1);
                     FrmUsersAdmin.SIGUIENTE.setEnabled(currentPageIndex<maxPageIndex);
@@ -114,6 +169,10 @@ public class Pager {
             box.add(Box.createHorizontalGlue());
             box.revalidate();
             box.repaint();
+                    
+                    break;
+                    
+            }
         }
     }
     public static JRadioButton makeRadioButton(final int target) {

@@ -46,7 +46,6 @@ public class ControllerStart implements ActionListener, KeyListener, MouseListen
     public static boolean conectat = false;
     public static WndStart Start = new WndStart();
     public static FrmSignUp SignUp = new FrmSignUp();
-    public static FrmSignUp Perfil = new FrmSignUp();
     public static FrmRecover Recover = new FrmRecover();
     public static FrmUsersAdmin Pager = new FrmUsersAdmin();
     public static FrmRoomsUser HabUsers = new FrmRoomsUser();
@@ -82,11 +81,18 @@ public class ControllerStart implements ActionListener, KeyListener, MouseListen
         //Accions del bottom
         _CONF,
         
-        //ACCIONS SIGNUO
+        //ACCIONS SIGNUP
         _REG_DNI,
         _REG_NOM,
         _REG_COGNOM,
         _REG_DIRECCIO,
+        
+        //ACCIONS SIGNIN
+        
+        
+        //ACCIONS RECOVER
+        
+        
         
         
         
@@ -101,9 +107,22 @@ public class ControllerStart implements ActionListener, KeyListener, MouseListen
             case 1: //Alta
                 this.SignUp = (FrmSignUp) finestra;
                 break;
-            case 2: //Perfil
-                this.Pager= (FrmUsersAdmin) finestra;
+            case 2: //Recordar clau
+                this.SignUp = (FrmSignUp) finestra;
                 break;
+            case 3: //Alta
+                this.SignUp = (FrmSignUp) finestra;
+                break;
+            case 4: //Perfil
+                
+                break;
+            case 5: //Pager users
+                
+                break;
+            
+                
+                
+                
             default:
                 break;
 
