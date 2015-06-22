@@ -19,7 +19,7 @@ public class Principal {
                 usuari = new MyUser("defecte", "defecte", true, true, "user", "src/stars/images/users/default-avatar.jpg");
                                 
                 
-                
+                //previsió
                 new ControllerStart(new WndStart(), 0).iniciar(0);
 
 	}
