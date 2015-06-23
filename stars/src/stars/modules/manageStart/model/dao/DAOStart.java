@@ -59,14 +59,14 @@ public class DAOStart {
     
     
     public void crearUser(){
-        String dni = obtindreDni();
-        String password = obtindrePass();
+        String usuari = obtindreDni();
+        String clau = obtindrePass();
         String tipus = "user";
         String avatar = "";
+              
         
+        ReposUsers.usuari = new MyUser(usuari, clau, tipus, avatar);
         
-        
-        ReposUsers.usuari = new MyUser(dni, tipus, tipus, avatar);
         
     }
     
