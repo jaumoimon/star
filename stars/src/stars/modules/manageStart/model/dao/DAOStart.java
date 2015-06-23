@@ -63,9 +63,12 @@ public class DAOStart {
         String clau = obtindrePass();
         String tipus = "user";
         String avatar = "";
-              
+                      
         
         ReposUsers.usuari = new MyUser(usuari, clau, tipus, avatar);
+        
+        ReposUsers.arrUsuaris.add(ReposUsers.usuari);
+        
         
         
     }
