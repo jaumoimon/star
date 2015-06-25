@@ -10,6 +10,7 @@ public class Principal {
 	public static Configuration conf = null;
         public static MyUser usuari = new MyUser();
         public static String singletonFinestra = "";
+        public static boolean institut = false;
 	
 	public static void main(String[] args) {
 		
