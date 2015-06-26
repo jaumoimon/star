@@ -13,8 +13,9 @@ import stars.modules.manageStart.classes.MyUser;
  * @author Gestor
  */
 public class ReposUsers {
-    public static ArrayList <MyUser> arrUsuaris = null;
+    public static ArrayList <MyUser> arrayUsuaris = null;
     public static MyUser usuari = null;
+    public static MyUser usuariLog = null;
 
     
 }

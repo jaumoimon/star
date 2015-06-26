@@ -55,6 +55,9 @@ public class FrmSignUp extends javax.swing.JFrame {
         lblAvatar = new javax.swing.JLabel();
         lblFile = new javax.swing.JLabel();
         txtFile = new javax.swing.JTextField();
+        lblDataNaix = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        txtEdat = new javax.swing.JTextField();
         panRight = new javax.swing.JPanel();
         lblPromo = new javax.swing.JLabel();
 
@@ -101,14 +104,17 @@ public class FrmSignUp extends javax.swing.JFrame {
 
         jButton2.setText("Cancel");
 
-        lblFile.setText("lblFile");
+        lblFile.setText("Arxiu");
 
-        txtFile.setText("jTextField1");
         txtFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFileActionPerformed(evt);
             }
         });
+
+        lblDataNaix.setText("Poblacio:");
+
+        jDateChooser1.setDateFormatString("dd-MM-yyyy");
 
         javax.swing.GroupLayout panLeftLayout = new javax.swing.GroupLayout(panLeft);
         panLeft.setLayout(panLeftLayout);
@@ -143,7 +149,13 @@ public class FrmSignUp extends javax.swing.JFrame {
                             .addGroup(panLeftLayout.createSequentialGroup()
                                 .addComponent(lblProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
-                                .addComponent(txtProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblDataNaix, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtEdat, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panLeftLayout.createSequentialGroup()
                                 .addGroup(panLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panLeftLayout.createSequentialGroup()
@@ -215,7 +227,10 @@ public class FrmSignUp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataNaix, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEdat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(9, 9, 9)
                 .addComponent(lblDatesUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -319,11 +334,13 @@ public class FrmSignUp extends javax.swing.JFrame {
     public static javax.swing.JFormattedTextField frmTxtCp;
     public static javax.swing.JFormattedTextField frmTxtDni;
     private javax.swing.JButton jButton2;
+    public static com.toedter.calendar.JDateChooser jDateChooser1;
     public static javax.swing.JLabel lblAvatar;
     public static javax.swing.JLabel lblClau;
     public static javax.swing.JLabel lblCognom;
     public static javax.swing.JLabel lblCp;
     private javax.swing.JLabel lblDades;
+    public static javax.swing.JLabel lblDataNaix;
     private javax.swing.JLabel lblDatesUser;
     public static javax.swing.JLabel lblDir;
     public static javax.swing.JLabel lblDni;
@@ -340,6 +357,7 @@ public class FrmSignUp extends javax.swing.JFrame {
     public static javax.swing.JPasswordField pasClau;
     public static javax.swing.JTextField txtCognom;
     public static javax.swing.JTextField txtDir;
+    public static javax.swing.JTextField txtEdat;
     public static javax.swing.JTextField txtFile;
     public static javax.swing.JTextField txtNom;
     public static javax.swing.JTextField txtPoblacio;
