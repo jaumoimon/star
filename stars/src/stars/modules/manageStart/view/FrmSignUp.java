@@ -112,7 +112,7 @@ public class FrmSignUp extends javax.swing.JFrame {
             }
         });
 
-        lblDataNaix.setText("Poblacio:");
+        lblDataNaix.setText("Data Naixement");
 
         jDateChooser1.setDateFormatString("dd-MM-yyyy");
 

@@ -28,7 +28,7 @@ public class DAOLogin {
             WndStart.txtUsuari.setText("Introduir usuari");
             WndStart.txtUsuari.requestFocus();
             return;
-        } else if ( Validate.validate_nom(WndStart.txtUsuari.getText()) ==false ){
+        } else if ( Validate.validate_dni(WndStart.txtUsuari.getText()) ==false ){
             WndStart.txtUsuari.setForeground(Color.red);
             WndStart.txtUsuari.setText("Introduir usuari valid");
             WndStart.txtUsuari.requestFocus();

@@ -449,7 +449,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblDataNaix">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Poblacio:"/>
+                <Property name="text" type="java.lang.String" value="Data Naixement"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

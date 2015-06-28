@@ -7,7 +7,12 @@ package stars.modules.manageStart.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import stars.classes.DataPropia;
 import stars.modules.manageStart.classes.MyUser;
+import stars.modules.manageStart.model.classes.ReposUsers;
 
 /**
  *
@@ -15,31 +20,32 @@ import stars.modules.manageStart.classes.MyUser;
  */
 public class DAOUsersDB {
     
-    //Donem d'alta un clie 
+    //Donem d'alta un usuari
     
     public int nouUsuariDAO (Connection con, MyUser usr) {
         PreparedStatement stmt = null;
         int resultado=0;
         try {
             stmt = con.prepareStatement("INSERT INTO stars.users"
-                    + "(dni, password, conectat, activitat, tipus, avatar"
-                    + ", Email, Telefono, Avatar, Provincia, Ciudad"
-                    + ", CP, Estado, Saldo) "
-                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            stmt.setString(1, usr.get;
-            stmt.setString(2, cli.getNombre());
-            stmt.setString(3, cli.getApellidos());
-            stmt.setString(4, cli.getFechaNac());
-            stmt.setString(5, cli.getLogin());
-            stmt.setString(6, cli.getPassword());
-            stmt.setString(7, cli.getEmail());
-            stmt.setString(8, cli.getTelefono());
-            stmt.setString(9, cli.getAvatar());
-            stmt.setString(10, cli.getProvincia());
-            stmt.setString(11, cli.getCiudad());
-            stmt.setString(12, cli.getCP());
-            stmt.setInt(13, cli.GetEstado());
-            stmt.setFloat(14, cli.getSaldo());
+                    + "(dni, nom, cognoms, direccio, cp, poblacio"
+                    + ", provincia, dataNaix, edat, mail, password"
+                    + ", avatar, conectat, activat, tipus) "
+                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            stmt.setString(1, usr.getDni());
+            stmt.setString(2, usr.getNom());
+            stmt.setString(3, usr.getCognoms());
+            stmt.setString(4, usr.getDireccio());
+            stmt.setInt(5, usr.getCp());
+            stmt.setString(6, usr.getPoblacio());
+            stmt.setString(7, usr.getProvincia());
+            stmt.setString(8, usr.getDataNaix().toString());
+            stmt.setInt(9, usr.getEdat());
+            stmt.setString(10, usr.getMail());
+            stmt.setString(11, usr.getPassword());
+            stmt.setString(12, usr.getAvatar());
+            stmt.setBoolean(13, usr.isConectat());
+            stmt.setBoolean(14, usr.isActivat());
+            stmt.setString(15, usr.getTipus());
 
 
             resultado=stmt.executeUpdate();
@@ -58,35 +64,37 @@ public class DAOUsersDB {
         return resultado;
     }
 
-    //Listamos todos los clientes y los metemos en su array
+    //Lllistar +  array els usuaris
     
    public void listAllClientesDAO(Connection con) {
         ResultSet rs = null;
         PreparedStatement stmt = null;
         
-        ArrayListClientes.cli.clear();
+        ReposUsers.arrayUsuaris.clear();
         try {
             stmt = con.prepareStatement("SELECT * FROM tpvpizzeria.clientes");
             rs = stmt.executeQuery();
-            Clientes _cliente = null;
+            MyUser _usuari = null;
             while (rs.next()) {
                 
-                _cliente = new Clientes();
-                _cliente.setDNI(rs.getString("DNI"));
-                _cliente.setNombre(rs.getString("Nombre"));
-                _cliente.setApellidos(rs.getString("Apellidos"));
-                _cliente.setFechaNac(rs.getString("FechaNac"));
-                _cliente.setLogin(rs.getString("Login"));
-                _cliente.setPassword(rs.getString("Password"));
-                _cliente.setEmail(rs.getString("Email"));
-                _cliente.setTelefono(rs.getString("Telefono"));
-                _cliente.setAvatar(rs.getString("Avatar"));
-                _cliente.setProvincia(rs.getString("Provincia"));
-                _cliente.setCiudad(rs.getString("Ciudad"));
-                _cliente.setCP(rs.getString("CP"));
-                _cliente.setEstado(rs.getInt("Estado"));
-                _cliente.setSaldo(rs.getInt("Saldo"));
-                ArrayListClientes.cli.add(_cliente);
+                _usuari = new MyUser();
+                _usuari.setDni(rs.getString("dni"));
+                _usuari.setNom(rs.getString("nom"));
+                _usuari.setCognoms(rs.getString("cognom"));
+                _usuari.setDireccio(rs.getString("direccio"));
+                _usuari.setCp(rs.getInt("cp"));
+                _usuari.setPoblacio(rs.getString("poblacio"));
+                _usuari.setProvincia(rs.getString("provincia"));
+                _usuari.setDataNaix( new DataPropia (rs.getString("dataNaix")) );
+                _usuari.setEdat(rs.getInt("edat"));
+                _usuari.setMail(rs.getString("mail"));
+                _usuari.setPassword(rs.getString("password"));
+                _usuari.setAvatar(rs.getString("avatar"));
+                _usuari.setConectat(rs.getBoolean("conectat"));
+                _usuari.setActivat(rs.getBoolean("activat"));
+                _usuari.setTipus(rs.getString("tipus"));
+                ReposUsers.arrayUsuaris.add(_usuari);
+
                 
                 
             }
@@ -104,33 +112,35 @@ public class DAOUsersDB {
 
     }
 
-   //Modificamos un cliente
+   //Modificar un usuari
    
-    public Clientes modificarClienteDAO(Connection con, Clientes cli) {
+    public MyUser modificarClienteDAO(Connection con, MyUser usr) {
         int resultado=0;
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("UPDATE tpvpizzeria.clientes SET DNI=?, Nombre=?, "
-                    + "Apellidos=?, FechaNac=?, Login=?, Password=?,"
-                    + "Email=?, Telefono=?, Avatar=?, Provincia=?, "
-                    + "Ciudad=?, CP=?, Estado=?, Saldo=? WHERE DNI=?");
+            stmt = con.prepareStatement("UPDATE stars.users SET dni=?, nom=?,"
+                    + "cognoms=?, direccio=?, cp=?, poblacio=?"
+                    + ", provincia=?, dataNaix=?, edat=?, mail=?, password=?"
+                    + ", avatar=?, conectat=?, activat=?, tipus=? WHERE dni=? ");  
             
-            stmt.setString(1, cli.getDNI());
-            stmt.setString(2, cli.getNombre());
-            stmt.setString(3, cli.getApellidos());
-            stmt.setString(4, cli.getFechaNac());
-            stmt.setString(5, cli.getLogin());
-            stmt.setString(6, cli.getPassword());
-            stmt.setString(7, cli.getEmail());
-            stmt.setString(8, cli.getTelefono());
-            stmt.setString(9, cli.getAvatar());
-            stmt.setString(10, cli.getProvincia());
-            stmt.setString(11, cli.getCiudad());
-            stmt.setString(12, cli.getCP());
-            stmt.setInt(13, cli.GetEstado());
-            stmt.setFloat(14, cli.getSaldo());
-
-            stmt.setString(15, cli.getDNI());
+            
+            stmt.setString(1, usr.getDni());
+            stmt.setString(2, usr.getNom());
+            stmt.setString(3, usr.getCognoms());
+            stmt.setString(4, usr.getDireccio());
+            stmt.setInt(5, usr.getCp());
+            stmt.setString(6, usr.getPoblacio());
+            stmt.setString(7, usr.getProvincia());
+            stmt.setString(8, usr.getDataNaix().toString());
+            stmt.setInt(9, usr.getEdat());
+            stmt.setString(10, usr.getMail());
+            stmt.setString(11, usr.getPassword());
+            stmt.setString(12, usr.getAvatar());
+            stmt.setBoolean(13, usr.isConectat());
+            stmt.setBoolean(14, usr.isActivat());
+            stmt.setString(15, usr.getTipus());
+            
+            stmt.setString(16, usr.getDni());
             stmt.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "El usuario ha sido modificado correctamente!");
@@ -145,17 +155,17 @@ public class DAOUsersDB {
                 }
             }
         }
-        return cli;
+        return usr;
     }
    
-    //Borramos un cliente
+    //Borrar un usuari
     
-    public Clientes borrarClientesDAO(Connection con, Clientes cli) {
+    public MyUser borrarClientesDAO(Connection con, MyUser usr) {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("DELETE FROM tpvpizzeria.clientes WHERE DNI=?");
-            stmt.setString(1, cli.getDNI());
+            stmt = con.prepareStatement("DELETE FROM stars.users WHERE dni=?");
+            stmt.setString(1, usr.getDni());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un error al eliminar el usuario!");
@@ -168,22 +178,22 @@ public class DAOUsersDB {
                 }
             }
         }
-        return cli;
+        return usr;
     }
 
     //Buscamos por dni un cliente
     
-    public Clientes buscarPorDniDAO(Connection con, Clientes cli) {
-        Clientes _cliente = null;
+    public MyUser buscarPorDniDAO(Connection con, MyUser usr) {
+        MyUser _usuari = null;
         ResultSet rs = null;
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("SELECT * FROM tpvpizzeria.clientes WHERE DNI=?");
-            stmt.setString(1, cli.getDNI());
+            stmt = con.prepareStatement("SELECT * FROM stars.users WHERE DNI=?");
+            stmt.setString(1, usr.getDni());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                _cliente = new Clientes(null, null, null, null, null, null, null, null, null, null, null, 0, 0);
-                obtenClienteFila(rs, _cliente);
+                _usuari = new MyUser(null, null, null, null, 0, null, null, null, 0, null, null, null, true, true, null);
+                obtenClienteFila(rs, _usuari);
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un problema al buscar el usuario por DNI");
@@ -203,27 +213,31 @@ public class DAOUsersDB {
                 }
             }
         }
-        return _cliente;
+        return _usuari;
     }
 
     
     
-    private void obtenClienteFila(ResultSet rs, Clientes cli) {
+    private void obtenClienteFila(ResultSet rs, MyUser usr) {
         try {
             
-            cli.setDNI(rs.getString("DNI"));
-            cli.setNombre(rs.getString("Nombre"));
-            cli.setApellidos(rs.getString("Apellidos"));
-            cli.setFechaNac(rs.getString("FechaNac"));
-            cli.setLogin(rs.getString("Login"));
-            cli.setPassword(rs.getString("Password"));
-            cli.setEmail(rs.getString("Email"));
-            cli.setTelefono(rs.getString("Telefono"));
-            cli.setAvatar(rs.getString("Avatar"));
-            cli.setProvincia(rs.getString("Provincia"));
-            cli.setCiudad(rs.getString("Ciudad"));
-            cli.setCP(rs.getString("CP"));
-            cli.setEstado(rs.getInt("Estado"));
+
+            usr.setDni(rs.getString("dni"));
+            usr.setNom(rs.getString("nom"));
+            usr.setCognoms(rs.getString("cognom"));
+            usr.setDireccio(rs.getString("direccio"));
+            usr.setCp(rs.getInt("cp"));
+            usr.setPoblacio(rs.getString("poblacio"));
+            usr.setProvincia(rs.getString("provincia"));
+            usr.setDataNaix( new DataPropia (rs.getString("dataNaix")) );
+            usr.setEdat(rs.getInt("edat"));
+            usr.setMail(rs.getString("mail"));
+            usr.setPassword(rs.getString("password"));
+            usr.setAvatar(rs.getString("avatar"));
+            usr.setConectat(rs.getBoolean("conectat"));
+            usr.setActivat(rs.getBoolean("activat"));
+            usr.setTipus(rs.getString("tipus"));
+
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en el Logger");
