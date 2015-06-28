@@ -49,7 +49,7 @@ public class MSTableModelUsers extends AbstractTableModel{
 
         switch (col) {
             case 0:
-                dev = fila.getUsuari();
+                dev = fila.getDni();
                 break;
 
             case 1:
@@ -85,7 +85,7 @@ public class MSTableModelUsers extends AbstractTableModel{
 
         switch (col) {
             case 0:
-                fila.setUsuari(value.toString());
+                fila.setDni(value.toString());
                 break;
 
             case 1:
@@ -136,7 +136,7 @@ public class MSTableModelUsers extends AbstractTableModel{
         int cont=0;
         String dni=FrmUsersAdmin.jTextField1.getText();
         for(int i=0;i<datosaux.size();i++) {
-            if(datosaux.get(i).getUsuari().contains(dni)){
+            if(datosaux.get(i).getDni().contains(dni)){
                 addRow(datosaux.get(i));
                 cont++;
             }

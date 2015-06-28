@@ -26,7 +26,7 @@ public class DAOUsersDB {
                     + ", Email, Telefono, Avatar, Provincia, Ciudad"
                     + ", CP, Estado, Saldo) "
                     + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            stmt.setString(1, cli.getDNI());
+            stmt.setString(1, usr.get;
             stmt.setString(2, cli.getNombre());
             stmt.setString(3, cli.getApellidos());
             stmt.setString(4, cli.getFechaNac());
