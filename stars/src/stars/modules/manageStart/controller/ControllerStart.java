@@ -34,7 +34,9 @@ import stars.modules.manageStart.view.FrmSignUp;
 import stars.modules.manageStart.view.WndStart;
 import stars.librariesInt.Texts_WndStart;
 import stars.modules.manageRooms.view.FrmRoomsUser;
+import stars.modules.manageStart.classes.MyUser;
 import stars.modules.manageStart.model.bll.BLLStart;
+import stars.modules.manageStart.model.classes.ReposUsers;
 import stars.modules.manageStart.view.FrmUsersAdmin;
 
 /**
@@ -196,8 +198,9 @@ public class ControllerStart implements ActionListener, KeyListener, MouseListen
                 this.Start.lblRecovre.setFont(ColorsAndFonts.pK); 
                 
                 //Usuari
+                ReposUsers.usuariLog = ReposUsers.usuariDefecte;
                 this.Start.lblAvatar.setSize(78, 78);
-                avatar = new ImageIcon ( Principal.usuari.getAvatar() );
+                avatar = new ImageIcon ( ReposUsers.usuariLog.getAvatar() );
                 avatar.getImage().getScaledInstance(this.Start.lblAvatar.getWidth(), this.Start.lblAvatar.getHeight(), Image.SCALE_DEFAULT);
                 this.Start.lblAvatar.setIcon(avatar);
                 this.Start.lblAvatar.setVisible(true);
@@ -205,10 +208,10 @@ public class ControllerStart implements ActionListener, KeyListener, MouseListen
                 this.Start.lblSession.setText("Vols registrar-te?");
 
                 //Visibilitat  
-                if (Principal.usuari.getTipus()== "user"){
+                if (ReposUsers.usuariLog.getTipus()== "user"){
                     this.Start.barMenuAdmin.setVisible(false);
                     this.Start.barMenuUser.setVisible(true);
-                } else if (Principal.usuari.getTipus()== "admin") {
+                } else if (ReposUsers.usuariLog.getTipus()== "admin") {
                     this.Start.barMenuUser.setVisible(false);
                     this.Start.barMenuAdmin.setVisible(true);
                 }

@@ -37,7 +37,7 @@ public class json {
 	                PATH=PATH+ ".json";
 	              
 	                Gson gson1=new Gson();
-	                String json=gson1.toJson(ReposUsers.arrUsuaris);
+	                String json=gson1.toJson(ReposUsers.arrayUsuaris);
 		            FileWriter fileXml=new FileWriter(PATH);
 	                fileXml.write(json.toString());
 	                fileXml.close();
@@ -119,7 +119,7 @@ public class json {
 	           
 	              
 	                Gson gson = new Gson();
-		            String json1 = gson.toJson(ReposUsers.arrUsuaris);
+		            String json1 = gson.toJson(ReposUsers.arrayUsuaris);
 		            FileWriter fileXml = new FileWriter(PATH);
 	                fileXml.write(json1.toString());
 	                fileXml.close();
@@ -192,7 +192,7 @@ public class json {
 	                File JFC = fileChooser.getSelectedFile();
 	                PATH = JFC.getAbsolutePath();
 	               
-	                ReposUsers.arrUsuaris.clear();
+	                ReposUsers.arrayUsuaris.clear();
 	                JsonReader lector = new JsonReader(new FileReader(PATH));
 	                JsonParser parseador = new JsonParser();
 	                JsonElement raiz = parseador.parse(lector);
@@ -201,13 +201,13 @@ public class json {
 	            	JsonArray lista = raiz.getAsJsonArray();
 	            	for (JsonElement elemento : lista) {
 	            		e1 = json.fromJson(elemento, MyUser.class);
-	            		ReposUsers.arrUsuaris.add(e1);
+	            		ReposUsers.arrayUsuaris.add(e1);
 	            	}
 	          } 
         } catch (Exception e) {
         	JOptionPane.showMessageDialog(null, "Error al leer el JSON", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        return ReposUsers.arrUsuaris;
+        return ReposUsers.arrayUsuaris;
     }
     /*
     public static ArrayList<WorkerT> obrirJsonWT(){//Abre Json de empleados fijos
@@ -283,7 +283,7 @@ public class json {
         try {
             PATH = new java.io.File(".").getCanonicalPath()+"/src/hotel/moduls/gestioPersones/gstTreballadors/gstTrebFixe/model/fitxers/trebFixes.json";
 
-            		ReposUsers.arrUsuaris.clear();
+            		ReposUsers.arrayUsuaris.clear();
 	                JsonReader lector = new JsonReader(new FileReader(PATH));
 	                JsonParser parseador = new JsonParser();
 	                JsonElement raiz = parseador.parse(lector);
@@ -292,12 +292,12 @@ public class json {
 	            	JsonArray lista = raiz.getAsJsonArray();
 	            	for (JsonElement elemento : lista) {
 	            		e1 = json.fromJson(elemento, MyUser.class);
-	            		ReposUsers.arrUsuaris.add(e1);
+	            		ReposUsers.arrayUsuaris.add(e1);
 	            	}
         } catch (Exception e) {
 
         }
-        return ReposUsers.arrUsuaris;
+        return ReposUsers.arrayUsuaris;
     }
     /*
     public static ArrayList<WorkerT> obrirJsonOcultWT(){//Abre json de empleados fijos de forma silenciosa

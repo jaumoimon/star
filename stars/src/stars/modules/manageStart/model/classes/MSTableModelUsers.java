@@ -119,7 +119,7 @@ public class MSTableModelUsers extends AbstractTableModel{
         
         MyUser _user= null;
         for(int i=1;i<=7;i++) {
-            _user = new MyUser(null, null, true, true, null, null);
+            _user = new MyUser(null, null, null, null, i, null, null, null, i, null, null, null, true, true, null);
             addRow(_user);
             datosaux.add(_user);
             try {

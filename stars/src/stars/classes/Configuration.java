@@ -26,7 +26,10 @@ public class Configuration {
 		this.formatFitxer = 0;
 		
 		//ArrayList d'Usuaris
-                ReposUsers.arrUsuaris = new ArrayList<MyUser>();
+                ReposUsers.arrayUsuaris= new ArrayList<MyUser>();
+                
+
+                ReposUsers.usuariDefecte = new MyUser("src/images/users/deault-avatar.jpg", "user");
 		/*
 		ArrayListWT.wT = new ArrayList<WorkerT>();
 		ArrayListWH.wH = new ArrayList<WorkerH>();

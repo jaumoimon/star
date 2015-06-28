@@ -64,6 +64,12 @@ public class MyUser implements Comparable<MyUser>, Serializable {
         this.tipus = tipus;
     }
     
+    public MyUser(String avatar, String tipus){
+        this.avatar = avatar;
+        this.tipus = tipus;
+        
+    }
+    
     public MyUser(){
         
     }

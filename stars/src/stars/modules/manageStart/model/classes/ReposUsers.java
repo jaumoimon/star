@@ -16,6 +16,8 @@ public class ReposUsers {
     public static ArrayList <MyUser> arrayUsuaris = null;
     public static MyUser usuari = null;
     public static MyUser usuariLog = null;
+    
+    public static MyUser usuariDefecte = null;
 
     
 }

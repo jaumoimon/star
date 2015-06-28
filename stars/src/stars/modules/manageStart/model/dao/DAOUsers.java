@@ -13,7 +13,7 @@ import stars.modules.manageStart.view.FrmSignUp;
  *
  * @author Gestor
  */
-public class DAOStart {
+public class DAOUsers {
     
     public static String obtindreDni (){
         return FrmSignUp.frmTxtDni.getText();
@@ -41,6 +41,10 @@ public class DAOStart {
     
     public static String obtindreProvincia (){
         return FrmSignUp.lblProvincia.getText();
+    }
+    
+    public static String obtindreDataNaix(){
+        return FrmSignUp..getText();
     }
     
     public static String obtindreMail (){

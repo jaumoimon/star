@@ -31,7 +31,7 @@ public class xml {
 			Annotations.configureAliases(xstream, MyUser.class);
 
             String header = "<?xml version=\"1.0\" encoding=\"" + ENCODING + "\"?>\n";
-            xstream.toXML(ReposUsers.arrUsuaris, osw);
+            xstream.toXML(ReposUsers.arrayUsuaris, osw);
             StringBuffer xml = new StringBuffer();
             xml.append(header);
             xml.append(os.toString());
@@ -133,7 +133,7 @@ public class xml {
 			Annotations.configureAliases(xstream, MyUser.class);
 
             String header = "<?xml version=\"1.0\" encoding=\"" + ENCODING + "\"?>\n";
-            xstream.toXML(ReposUsers.arrUsuaris, osw);
+            xstream.toXML(ReposUsers.arrayUsuaris, osw);
             StringBuffer xml = new StringBuffer();
             xml.append(header);
             xml.append(os.toString());
@@ -219,13 +219,13 @@ public class xml {
             if (seleccion == JFileChooser.APPROVE_OPTION) {
             	File JFC = fileChooser.getSelectedFile();
                 PATH = JFC.getAbsolutePath();
-                ReposUsers.arrUsuaris = (ArrayList <MyUser>)xstream.fromXML(new FileReader(PATH));
+                ReposUsers.arrayUsuaris = (ArrayList <MyUser>)xstream.fromXML(new FileReader(PATH));
             }
             
         } catch (Exception e1) {
         	JOptionPane.showMessageDialog(null, "Error al leer el XML", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        return ReposUsers.arrUsuaris;
+        return ReposUsers.arrayUsuaris;
     }
    /*
    public static ArrayList<WorkerT> obrirXmmlWT() {
@@ -275,12 +275,12 @@ public class xml {
             Annotations.configureAliases(xstream, MyUser.class);
  
             PATH = new java.io.File(".").getCanonicalPath()+"/src/hotel/moduls/gestioPersones/gstTreballadors/gstTrebFixe/model/fitxers/trebFixes.xml";
-            ReposUsers.arrUsuaris = (ArrayList <MyUser>)xstream.fromXML(new FileReader(PATH));
+            ReposUsers.arrayUsuaris = (ArrayList <MyUser>)xstream.fromXML(new FileReader(PATH));
             
         } catch (Exception e1) {
         	
         }
-        return ReposUsers.arrUsuaris;
+        return ReposUsers.arrayUsuaris;
     }
    /*
    public static ArrayList<WorkerT> obrirXmlOcultWT() {
