@@ -43,10 +43,10 @@ public class DAOUsers {
         return FrmSignUp.lblProvincia.getText();
     }
     
-    public static String obtindreDataNaix(){
-        return FrmSignUp..getText();
+  /*  public static String obtindreDataNaix(){
+        return FrmSignUp.getText();
     }
-    
+    */
     public static String obtindreMail (){
         return FrmSignUp.FrmTxtMail.getText();
     }
@@ -61,7 +61,7 @@ public class DAOUsers {
     
     
     
-    
+   /* 
     public void crearUser(){
         String usuari = obtindreDni();
         String clau = obtindrePass();
@@ -76,6 +76,6 @@ public class DAOUsers {
         
         
     }
-    
+    */
     
 }
