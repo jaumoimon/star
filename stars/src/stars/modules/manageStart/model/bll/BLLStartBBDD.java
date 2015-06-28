@@ -6,8 +6,10 @@
 package stars.modules.manageStart.model.bll;
 
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 import stars.classes.ConexioBD;
 import stars.modules.manageStart.classes.MyUser;
+import stars.modules.manageStart.model.dao.DAOUsersDB;
 
 /**
  *
@@ -22,21 +24,21 @@ public class BLLStartBBDD {
         ConexioBD _conexion_DB = new ConexioBD();
 		
         _con = _conexion_DB.AbrirConexion();
-        ClientesDAOBD _clientesDAO = new ClientesDAOBD();
+        DAOUsersDB _usuarisDAO = new DAOUsersDB();
         
-        resultado = _clientesDAO.nuevoClienteDAO(_con, _cliente);
+        resultat = _usuarisDAO.nouUsuariDAO(_con, _usuari);
         
         _conexion_DB.CerrarConexion(_con);
-        return resultado;
+        return resultat;
     }
     // * obtener un arraylist con todos los clientes disponibles
 
     public void listAllClientesBLL() {
         Connection _con = null;
-        ConexionBD _conexion_DB = new ConexionBD();
+        ConexioBD _conexion_DB = new ConexioBD();
 		
         _con = _conexion_DB.AbrirConexion();
-        ClientesDAOBD _clienteDAO = new ClientesDAOBD();
+        DAOUsersDB _clienteDAO = new DAOUsersDB();
         try {
             _clienteDAO.listAllClientesDAO(_con);//Recuperamos los usuarios       
         } catch (Exception ex) {
@@ -48,44 +50,44 @@ public class BLLStartBBDD {
     
      // modificar un cliente existente en la BD
   
-    public void modificarClienteBLL(Clientes cli) {
-        int resultado=0;
+    public void modificarClienteBLL(MyUser usu) {
+        int resultat=0;
         Connection _con;
-        Clientes _clienteModificado = null;
-        ConexionBD _conexion_DB = new ConexionBD();
+        MyUser _usuariModificat = null;
+        ConexioBD _conexion_DB = new ConexioBD();
 		
         _con = _conexion_DB.AbrirConexion();
-        ClientesDAOBD _clientesDAO = new ClientesDAOBD();
+        DAOUsersDB _clientesDAO = new DAOUsersDB();
         
-        _clienteModificado = _clientesDAO.modificarClienteDAO(_con, cli);
+        _usuariModificat = _clientesDAO.modificarClienteDAO(_con, usu);
         _conexion_DB.CerrarConexion(_con);
     }
 
    
      // eliminar un cliente de la BD
 
-    public void borrarUsuarioBLL(Clientes cli) {
+    public void borrarUsuarioBLL(MyUser usu) {
         Connection _con;
-        Clientes _clienteborrado = null;
-        ConexionBD _conexion_DB = new ConexionBD();
+        MyUser _usuariEliminat = null;
+        ConexioBD _conexion_DB = new ConexioBD();
 
         _con = _conexion_DB.AbrirConexion();
-        ClientesDAOBD _clienteDAO = new ClientesDAOBD();
-        _clienteborrado = _clienteDAO.borrarClientesDAO(_con, cli);
+        DAOUsersDB _clienteDAO = new DAOUsersDB();
+        _usuariEliminat = _clienteDAO.borrarClientesDAO(_con, usu);
         _conexion_DB.CerrarConexion(_con);
     }
 
     
      //* buscar en la BD un cliente por su DNI
 
-    public Clientes buscarPorDniBLL(Clientes cli) {
+    public MyUser buscarPorDniBLL(MyUser usu) {
         Connection _con = null;
-        Clientes _clienteObtenido = null;
-        ConexionBD _conexion_DB = new ConexionBD();
+        MyUser _clienteObtenido = null;
+        ConexioBD _conexion_DB = new ConexioBD();
 		
         _con = _conexion_DB.AbrirConexion();
-        ClientesDAOBD _clienteDAO = new ClientesDAOBD();
-        _clienteObtenido = _clienteDAO.buscarPorDniDAO(_con, cli);
+        DAOUsersDB _clienteDAO = new DAOUsersDB();
+        _clienteObtenido = _clienteDAO.buscarPorDniDAO(_con, usu);
         _conexion_DB.CerrarConexion(_con);
         return _clienteObtenido;
     }    
