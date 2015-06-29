@@ -32,21 +32,21 @@ public class DAOUsers {
     }
     
     public static String obtindreCP (){
-        return FrmSignUp.lblCp.getText();
+        return FrmSignUp.frmTxtCp.getText();
     }
     
     public static String obtindrePoblacio (){
-        return FrmSignUp.lblPoblacio.getText();
+        return FrmSignUp.txtPoblacio.getText();
     }
     
     public static String obtindreProvincia (){
-        return FrmSignUp.lblProvincia.getText();
+        return FrmSignUp.txtProvincia.getText();
     }
     
-  /*  public static String obtindreDataNaix(){
-        return FrmSignUp.getText();
+    public static String obtindreDataNaix(){
+        return FrmSignUp.dateDataNaix.getDateFormatString();
     }
-    */
+
     public static String obtindreMail (){
         return FrmSignUp.FrmTxtMail.getText();
     }
@@ -59,23 +59,23 @@ public class DAOUsers {
         return FrmSignUp.lblAvatar.getText();
     }
     
-    
-    
-   /* 
-    public void crearUser(){
-        String usuari = obtindreDni();
-        String clau = obtindrePass();
-        String tipus = "user";
-        String avatar = "";
+    public MyUser crearUser(){
+        MyUser usuari = null;
+        
+        usuari = new MyUser(null, null, null, null, cp, null, null, null, edat, null, null, null, true, true, null);
+        
+        
+        
+        return usuari;
+    }
+       
+
                       
         
-        ReposUsers.usuari = new MyUser(usuari, clau, tipus, avatar);
-        
-        ReposUsers.arrUsuaris.add(ReposUsers.usuari);
+
         
         
         
     }
-    */
     
 }

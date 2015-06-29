@@ -66,7 +66,7 @@ public class DAOLogin {
         
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM stars.users WHERE dni=? AND password=?");
+            stmt = con.prepareStatement("SELECT * FROM stars.usuaris WHERE dni=? AND password=?");
 
             stmt.setString(1, dni);
             //stmt.setString(2, encriptador.encrypt(password));

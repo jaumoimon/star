@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Gestor/Documents/GitHub/star/stars/src/stars/modules/manageStart/classes/MyUser.java</file>
             <file>file:/C:/Users/Gestor/Documents/GitHub/star/stars/src/stars/modules/manageStart/view/FrmSignUp.java</file>
-            <file>file:/C:/Users/Gestor/Documents/GitHub/star/stars/src/stars/modules/manageStart/model/bll/BLLStartBBDD.java</file>
-            <file>file:/C:/Users/Gestor/Documents/GitHub/star/stars/src/stars/librariesInt/AppImages.java</file>
-            <file>file:/C:/Users/Gestor/Documents/GitHub/star/stars/src/stars/Principal.java</file>
-            <file>file:/C:/Users/Gestor/Documents/GitHub/star/stars/src/stars/modules/manageStart/model/dao/DAOUsersDB.java</file>
-            <file>file:/C:/Users/Gestor/Documents/GitHub/star/stars/src/stars/modules/manageStart/model/dao/DAOLogin.java</file>
+            <file>file:/C:/Users/Gestor/Documents/GitHub/star/stars/src/stars/modules/manageStart/model/dao/DAOUsers.java</file>
             <file>file:/C:/Users/Gestor/Documents/GitHub/star/stars/src/stars/modules/manageStart/model/bll/BLLStart.java</file>
-            <file>file:/C:/Users/Gestor/Documents/GitHub/star/stars/src/stars/modules/manageStart/model/dao/DAOStart.java</file>
-            <file>file:/C:/Users/Gestor/Documents/GitHub/star/stars/src/stars/modules/manageStart/model/classes/ReposUsers.java</file>
+            <file>file:/C:/Users/Gestor/Documents/GitHub/star/stars/src/stars/modules/manageStart/controller/ControllerStart.java</file>
         </group>
     </open-files>
 </project-private>

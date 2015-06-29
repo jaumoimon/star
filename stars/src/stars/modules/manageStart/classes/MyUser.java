@@ -70,6 +70,10 @@ public class MyUser implements Comparable<MyUser>, Serializable {
         
     }
     
+    public MyUser(String dni){
+        this.dni = dni;        
+    }
+    
     public MyUser(){
         
     }

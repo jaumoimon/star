@@ -56,7 +56,7 @@ public class FrmSignUp extends javax.swing.JFrame {
         lblFile = new javax.swing.JLabel();
         txtFile = new javax.swing.JTextField();
         lblDataNaix = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        dateDataNaix = new com.toedter.calendar.JDateChooser();
         txtEdat = new javax.swing.JTextField();
         panRight = new javax.swing.JPanel();
         lblPromo = new javax.swing.JLabel();
@@ -114,7 +114,7 @@ public class FrmSignUp extends javax.swing.JFrame {
 
         lblDataNaix.setText("Data Naixement");
 
-        jDateChooser1.setDateFormatString("dd-MM-yyyy");
+        dateDataNaix.setDateFormatString("dd-MM-yyyy");
 
         javax.swing.GroupLayout panLeftLayout = new javax.swing.GroupLayout(panLeft);
         panLeft.setLayout(panLeftLayout);
@@ -153,7 +153,7 @@ public class FrmSignUp extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(lblDataNaix, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(dateDataNaix, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtEdat, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panLeftLayout.createSequentialGroup()
@@ -229,7 +229,7 @@ public class FrmSignUp extends javax.swing.JFrame {
                             .addComponent(lblProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDataNaix, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dateDataNaix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEdat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(9, 9, 9)
                 .addComponent(lblDatesUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -331,10 +331,10 @@ public class FrmSignUp extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JFormattedTextField FrmTxtMail;
     private javax.swing.JButton btnSignUp;
+    public static com.toedter.calendar.JDateChooser dateDataNaix;
     public static javax.swing.JFormattedTextField frmTxtCp;
     public static javax.swing.JFormattedTextField frmTxtDni;
     private javax.swing.JButton jButton2;
-    public static com.toedter.calendar.JDateChooser jDateChooser1;
     public static javax.swing.JLabel lblAvatar;
     public static javax.swing.JLabel lblClau;
     public static javax.swing.JLabel lblCognom;
